@@ -1,47 +1,26 @@
-#  Local Chatbot
+ Local Chatbot with Thinking UI
 
- This Local chatbot is a Streamlit-based chatbot application that provides real-time AI responses using the Deepseek-r1 model. It features a smooth streaming UI with a unique "thinking phase" that enhances user experience.
+ Overview
+This is a Streamlit-based chatbot powered by the DeepSeek-R1 model. It features an enhanced user interface (UI) with a "thinking" phase, chat bubbles, and a sidebar for customization.
 
-## Features
-
-- **Real-time AI responses** with a smooth streaming experience
-- **Thinking UI** that displays the model's reasoning before providing an answer
-- **Chat history** persists throughout the session
-- **Efficient caching** of the chat model to reduce loading times
-- **User-friendly interface** built with Streamlit
-
-## Installation
-
-### Prerequisites
-- Python 3.8+
-- Pip
-- Virtual environment (optional but recommended)
-
-### Steps
+ Features
+- Modern Chat UI with user and assistant chat bubbles.
+- "Thinking" Phase UI to show model reasoning.
+- Sidebar Settings to choose the model and adjust response creativity.
+- Dark Mode Friendly* styling.
+- Streamed Responses* for a real-time chat experience.
 
 
-## Usage
+Usage
+- Type your message in the input field and press Enter.
+- View the chatbot's response, including the "thinking" phase.
+- Customize settings in the sidebar.
 
-Run the Streamlit application with:
-```sh
-streamlit run app.py
-```
 
-## Project Structure
-```
-Local-streaming-chat/
-│── assets/               # Contains images like the deep-seek logo
-│── app.py                # Main application file
-│── requirements.txt       # Required Python packages
-│── README.md             # Documentation
-```
 
-## Configuration
-- **Modify AI model**: Update the `model="deepseek-r1"` in `get_chat_model()` inside `app.py` if you want to use a different model.
-- **Customize UI**: Edit `st.markdown()` and `st.chat_message()` to change the chatbot’s appearance.
+ Dependencies
+- Streamlit for UI
+- Ollama for chatbot API
+- Re & Base64 for text formatting and image handling
 
-## Dependencies
-- `streamlit`
-- `ollama`
-- `re`
-- `base64`
+Inspired by Akshay Pachaar
