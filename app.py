@@ -4,10 +4,10 @@ import streamlit as st
 from ollama import chat
 
 
-st.set_page_config(page_title="Ollama Streaming Chat", layout="centered")
+st.set_page_config(page_title="Local Chatbot", layout="centered")
 
 def format_reasoning_response(thinking_content):
-    """Format assistant content by removing think tags."""
+
     return (
         thinking_content.replace("<think>\n\n</think>", "")
         .replace("<think>", "")
@@ -15,7 +15,7 @@ def format_reasoning_response(thinking_content):
     )
 
 def display_message(message):
-    """Display a single message in the chat interface."""
+    
     role = "user" if message["role"] == "user" else "assistant"
     with st.chat_message(role):
         if role == "assistant":
@@ -24,7 +24,7 @@ def display_message(message):
             st.markdown(message["content"])
 
 def display_assistant_message(content):
-    """Display assistant message with thinking content if present."""
+    
     pattern = r"<think>(.*?)</think>"
     think_match = re.search(pattern, content, re.DOTALL)
     if think_match:
@@ -38,7 +38,7 @@ def display_assistant_message(content):
         st.markdown(content)
 
 def display_chat_history():
-    """Display all previous messages in the chat history."""
+    
     for message in st.session_state["messages"]:
         if message["role"] != "system":  
             display_message(message)
@@ -105,7 +105,7 @@ def handle_user_input():
 def main():
     """Main function to handle the chat interface and streaming responses."""
     st.markdown("""
-    # Mini ChatGPT powered by <img src="data:image/png;base64,{}" width="170" style="vertical-align: -3px;">
+    # Local Chatbot powered by <img src="data:image/png;base64,{}" width="170" style="vertical-align: -3px;">
 """.format(base64.b64encode(open("assets/deep-seek.png", "rb").read()).decode()), unsafe_allow_html=True)
     st.markdown("<h4 style='text-align: center;'>With thinking UI! 💡</h4>", unsafe_allow_html=True)
     
